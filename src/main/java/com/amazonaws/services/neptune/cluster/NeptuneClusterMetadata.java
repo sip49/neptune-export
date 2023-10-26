@@ -305,7 +305,7 @@ public class NeptuneClusterMetadata {
 
     public boolean isTaggedWithNeptuneExport() {
         return clusterTags.containsKey("application") &&
-                clusterTags.get("application").equalsIgnoreCase(NEPTUNE_EXPORT_APPLICATION_TAG);
+                NEPTUNE_EXPORT_APPLICATION_TAG.equalsIgnoreCase(clusterTags.get("application"));
     }
 
     public Supplier<AmazonNeptune> clientSupplier() {

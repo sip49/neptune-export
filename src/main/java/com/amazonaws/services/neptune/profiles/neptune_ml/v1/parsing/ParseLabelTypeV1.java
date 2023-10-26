@@ -33,9 +33,9 @@ public class ParseLabelTypeV1 {
     public String parseLabel() {
         if (json.has("type") && json.get("type").isTextual()) {
             String type = json.get("type").textValue();
-            if (type.equals("regression")) {
+            if ("regression".equals(type)) {
                 return regressionLabel();
-            } else if (type.equals("classification")) {
+            } else if ("classification".equals(type)) {
                 return classLabel();
             } else {
                 throw ErrorMessageHelper.invalidFieldValue("type", type, context, Arrays.asList("classification", "regression"));

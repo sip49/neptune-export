@@ -77,7 +77,7 @@ class TupleQueryHandler implements TupleQueryResultHandler {
     private IRI getNonDefaultNamedGraph(Value g, ValueFactory factory) {
         String s = g.stringValue();
 
-        if (StringUtils.isEmpty(s) || s.equalsIgnoreCase("http://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph")) {
+        if (StringUtils.isEmpty(s) || "http://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph".equalsIgnoreCase(s)) {
             return null;
         }
 

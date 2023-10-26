@@ -163,7 +163,7 @@ public class AddCloneTask {
 
         String clusterStatus = targetDbCluster.getStatus();
 
-        while (clusterStatus.equals("creating")) {
+        while ("creating".equals(clusterStatus)) {
             try {
                 Thread.sleep(10000);
             } catch (InterruptedException e) {
@@ -336,7 +336,7 @@ public class AddCloneTask {
 
         String instanceStatus = targetDbInstance.getDBInstanceStatus();
 
-        while (instanceStatus.equals("creating")) {
+        while ("creating".equals(instanceStatus)) {
             try {
                 Thread.sleep(10000);
             } catch (InterruptedException e) {

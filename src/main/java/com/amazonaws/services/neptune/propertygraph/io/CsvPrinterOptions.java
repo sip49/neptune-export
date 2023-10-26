@@ -39,7 +39,7 @@ public class CsvPrinterOptions {
         this.escapeCsvHeaders = escapeCsvHeaders;
         this.includeHeaders = includeHeaders;
         this.escapeNewline = escapeNewline;
-        this.isSemicolonSeparator = multiValueSeparator.equalsIgnoreCase(";");
+        this.isSemicolonSeparator = ";".equalsIgnoreCase(multiValueSeparator);
         this.tokenPrefix = tokenPrefix;
     }
 

@@ -48,7 +48,7 @@ public class JsonResource<T extends Jsonizable<E>, E> {
         }
 
         if (resourcePath.getScheme() != null &&
-                (resourcePath.getScheme().equals("s3") || resourcePath.getScheme().equals("https"))) {
+                ("s3".equals(resourcePath.getScheme()) || "https".equals(resourcePath.getScheme()))) {
             return;
         }
 

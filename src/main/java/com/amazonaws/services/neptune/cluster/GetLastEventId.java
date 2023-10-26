@@ -69,7 +69,7 @@ public class GetLastEventId {
         try {
 
             String region = new DefaultAwsRegionProviderChain().getRegion();
-            NeptuneHttpsClient neptuneHttpsClient = new NeptuneHttpsClient(streamsEndpoint, region, endpoint.equals("localhost"));
+            NeptuneHttpsClient neptuneHttpsClient = new NeptuneHttpsClient(streamsEndpoint, region, "localhost".equals(endpoint));
 
             Map<String, String> params = new HashMap<>();
             params.put("commitNum", MaxCommitNumValueForEngine(clusterMetadata.engineVersion()));

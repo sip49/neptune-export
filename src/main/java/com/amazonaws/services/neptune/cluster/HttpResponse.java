@@ -46,7 +46,7 @@ public class HttpResponse {
     }
 
     public JsonNode getContentAsJson() throws IOException {
-        if (contentType.equals(JSON_CONTENT_TYPE)) {
+        if (JSON_CONTENT_TYPE.equals(contentType)) {
             return MAPPER.readTree(content);
         } else {
             throw new IllegalStateException("Content is not JSON: " + contentType);
@@ -54,7 +54,7 @@ public class HttpResponse {
     }
 
     public <T> T getContentAsObject(Class<T> type) throws IOException {
-        if (contentType.equals(JSON_CONTENT_TYPE)) {
+        if (JSON_CONTENT_TYPE.equals(contentType)) {
             @SuppressWarnings("unchecked")
             T returnValue = (T) MAPPER.readerFor(type).readValue(content);
             return returnValue;
@@ -64,7 +64,7 @@ public class HttpResponse {
     }
 
     public <T> Collection<T> getContentAsCollection(Class<T> type) throws IOException {
-        if (contentType.equals(JSON_CONTENT_TYPE)) {
+        if (JSON_CONTENT_TYPE.equals(contentType)) {
 
             ObjectReader reader = MAPPER.readerFor(type);
             List<T> results = new ArrayList<>();

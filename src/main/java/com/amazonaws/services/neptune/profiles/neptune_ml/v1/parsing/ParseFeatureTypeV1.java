@@ -32,7 +32,7 @@ public class ParseFeatureTypeV1 {
     public FeatureTypeV1 parseFeatureType() {
         if (json.has("type") && json.get("type").isTextual()) {
             String type = json.get("type").textValue();
-            if  ( type.equals("numerical") || type.equals("category")){
+            if  ( "numerical".equals(type) || "category".equals(type)){
                 return FeatureTypeV1.valueOf(type);
             } else {
                 throw ErrorMessageHelper.invalidFieldValue("type", type, context, Arrays.asList("numerical", "category"));

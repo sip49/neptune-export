@@ -92,7 +92,7 @@ public class IncrementalExportEventHandler implements NeptuneExportServiceEventH
 
         boolean createExportSubdirectory = true;
 
-        if (command.equals("apply")){
+        if ("apply".equals(command)){
             args.addOption("--partition-directories", String.format("timestamp=%s", timestamp));
             createExportSubdirectory = false;
             if (args.contains("export-pg")) {
