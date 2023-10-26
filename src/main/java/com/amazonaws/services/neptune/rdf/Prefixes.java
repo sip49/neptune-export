@@ -12,6 +12,7 @@ permissions and limitations under the License.
 
 package com.amazonaws.services.neptune.rdf;
 
+import java.nio.file.Files;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.LineIterator;
@@ -57,7 +58,7 @@ public class Prefixes {
         File source = filePath.toFile();
         LineIterator lineIterator = FileUtils.lineIterator(source);
         File tempFile = File.createTempFile(source.getName(), ".tmp");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+        BufferedWriter writer = Files.newBufferedWriter(tempFile.toPath());
         try {
             writer.write(allHeaders());
             while (lineIterator.hasNext()) {

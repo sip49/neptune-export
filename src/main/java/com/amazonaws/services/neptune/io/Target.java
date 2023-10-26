@@ -16,6 +16,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.function.Supplier;
 
@@ -26,7 +27,7 @@ public enum Target implements CommandWriter {
         public OutputWriter createOutputWriter(Supplier<Path> pathSupplier, KinesisConfig kinesisConfig) throws IOException {
             File file = pathSupplier.get().toFile();
             boolean isNewTarget = !(file.exists());
-            return new PrintOutputWriter(file.getAbsolutePath(), isNewTarget, new BufferedWriter(new FileWriter(file)));
+            return new PrintOutputWriter(file.getAbsolutePath(), isNewTarget, Files.newBufferedWriter(file.toPath()));
         }
 
         @Override
